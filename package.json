@@ -13,6 +13,7 @@
   "author": "klausdk1999@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "@joi/date": "^2.1.0",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "dayjs": "^1.11.4",

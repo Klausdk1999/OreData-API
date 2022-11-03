@@ -1,11 +1,15 @@
 import { Router } from "express";
-import { getFuros, getFuroById } from "../controllers/furosController.js";
+import { getAmostras,createAmostra, getAmostraById ,updateAmostraById,deleteAmostraById} from "../controllers/amostrasController.js";
 import validateSchema from "../middlewares/schemaValidation.js";
-import { orderSchema } from "../schemas/cakeSchema.js";
-const furoRouter = Router();
+import { amostraSchema } from "../schemas/amostrasSchema.js";
 
-//furoRouter.post("/furo", postfuro);
-furoRouter.get("/furos", getFuros );
-furoRouter.get("/furos/:id",  getFuroById);
+const amostraRouter = Router();
 
-export default furoRouter;
+amostraRouter.get("/furo/:idFuro/amostras", getAmostras );
+amostraRouter.post("/amostra", validateSchema(amostraSchema), createAmostra);
+amostraRouter.get("/furo/:idFuro/amostras/:idAmostra",  getAmostraById);
+amostraRouter.put("/furo/:idFuro/amostras/:idAmostra", validateSchema(amostraSchema),updateAmostraById);
+amostraRouter.delete("/furo/:idFuro/amostras/:idAmostra", deleteAmostraById);
+
+
+export default amostraRouter;
