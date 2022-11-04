@@ -1,6 +1,5 @@
 import joi from "joi";
 
-
 export const amostraSchema = joi.object({
     idFuro:joi.number().required(),
     idUsuario:joi.number().required(),
@@ -15,4 +14,8 @@ export const amostraSchema = joi.object({
     agua:joi.number(),
     ar:joi.number(),
     observacao:joi.string()
+}); 
+
+export const pesoSchema = joi.object({
+    peso:joi.number().required()
 }); 

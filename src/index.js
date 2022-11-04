@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import furoRouter from "./routers/furoRouter.js";
 import pesoRouter from "./routers/pesoRouter.js";
 import amostraRouter from "./routers/amostraRouter.js";
+import userRouter  from "./routers/userRouter.js";
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(cors());
 app.use(pesoRouter);
 app.use(furoRouter);
 app.use(amostraRouter);
+app.use(userRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () =>

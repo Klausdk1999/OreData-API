@@ -5,7 +5,7 @@ let ultimoPeso;
 export async function getPeso(req, res) {
   try {
     
-    res.send(ultimoPeso).status(200);
+    res.send({ peso: ultimoPeso }).status(200);
     
   } catch (err) {
     console.log(err);

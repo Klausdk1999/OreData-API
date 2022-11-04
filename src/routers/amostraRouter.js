@@ -11,5 +11,4 @@ amostraRouter.get("/furo/:idFuro/amostras/:idAmostra",  getAmostraById);
 amostraRouter.put("/furo/:idFuro/amostras/:idAmostra", validateSchema(amostraSchema),updateAmostraById);
 amostraRouter.delete("/furo/:idFuro/amostras/:idAmostra", deleteAmostraById);
 
-
 export default amostraRouter;

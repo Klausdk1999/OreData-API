@@ -13,7 +13,7 @@ export async function getFuros(req, res) {
         res.send(data).status(200);
       });
     });
-    console.log(result);
+    
     // res.send(result).status(200);
   } catch (err) {
     console.log(err);
