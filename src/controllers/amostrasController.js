@@ -23,7 +23,7 @@ export async function getAmostras(req, res) {
 }
 
 export async function getAmostraById(req, res) {
-  const { idFuro,idAmostra } = req.params;
+  const { idFuro, idAmostra } = req.params;
   try {
     let getQuery = `SELECT * FROM "Amostras" WHERE idFuro = ${idFuro} AND id = ${idAmostra}`;
     const result = await sqlite3.serialize(() => {
@@ -32,7 +32,7 @@ export async function getAmostraById(req, res) {
           console.error(err.message);
         }
 
-        res.send(data).status(200);
+        res.send(data[0]).status(200);
       });
     });
     console.log(result);
@@ -44,7 +44,21 @@ export async function getAmostraById(req, res) {
 }
 
 export async function createAmostra(req, res) {
-  const {idFuro,idUsuario,intervaloInicio,intervaloFim,pesoA,pesoB,pesoC,pesoD,pesoTotal,dataUpdate,agua,ar,observacao} = req.body;
+  const {
+    idFuro,
+    idUsuario,
+    intervaloInicio,
+    intervaloFim,
+    pesoA,
+    pesoB,
+    pesoC,
+    pesoD,
+    pesoTotal,
+    dataUpdate,
+    agua,
+    ar,
+    observacao,
+  } = req.body;
   try {
     let getQuery = `INSERT INTO "Amostras" (idFuro,idUsuario,intervaloInicio,intervaloFim,pesoA,pesoB,pesoC,pesoD,pesoTotal,dataUpdate,agua,ar,observacao)
      VALUES (${idFuro},${idUsuario},${intervaloInicio},${intervaloFim},${pesoA},${pesoB},${pesoC},${pesoD},${pesoTotal},${dataUpdate},${agua},${ar},${observacao})`;
@@ -66,7 +80,7 @@ export async function createAmostra(req, res) {
 }
 
 export async function updateAmostraById(req, res) {
-  const { idFuro,idAmostra } = req.params;
+  const { idFuro, idAmostra } = req.params;
   try {
     let getQuery = `UPDATE "Amostras" SET param = value, param1 = value1 WHERE idFuro = ${idFuro} AND id = ${idAmostra}`;
     const result = await sqlite3.serialize(() => {
@@ -87,7 +101,7 @@ export async function updateAmostraById(req, res) {
 }
 
 export async function deleteAmostraById(req, res) {
-  const { idFuro,idAmostra } = req.params;
+  const { idFuro, idAmostra } = req.params;
   try {
     let getQuery = `DELETE * FROM "Amostras" WHERE idFuro = ${idFuro} AND id = ${idAmostra}`;
     const result = await sqlite3.serialize(() => {

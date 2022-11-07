@@ -31,7 +31,7 @@ export async function getFuroById(req, res) {
           console.error(err.message);
         }
 
-        res.send(data).status(200);
+        res.send(data[0]).status(200);
       });
     });
     console.log(result);
