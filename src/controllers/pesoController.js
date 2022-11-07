@@ -1,6 +1,6 @@
 import sqlite3 from "../dbStrategy/sqlite.js";
 
-let ultimoPeso;
+let ultimoPeso=0;
 
 export async function getPeso(req, res) {
   try {
@@ -14,12 +14,11 @@ export async function getPeso(req, res) {
 }
 
 export async function postPeso(req, res) {
-  const peso = req.params.peso;
-  console.log(req.params)
+  const {peso} = req.body;
   console.log(peso);
   try {
     ultimoPeso=peso;
-    res.send(ultimoPeso).status(201);
+    res.sendStatus(201);
   } catch (err) {
     console.log(err);
     res.sendStatus(500);
